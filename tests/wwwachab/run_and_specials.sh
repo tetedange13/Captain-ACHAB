@@ -50,5 +50,9 @@ listSheetsOut="$testOutDir"/achab_sheets.tsv
 "$csvtkExe" xlsx2csv --list-sheets "$foundAchab" > "$listSheetsOut"
 
 for a_sheet in $("$csvtkExe" cut -t -f sheet "$listSheetsOut" | awk 'NR>1') ; do
-	"$csvtkExe" xlsx2csv --sheet-name "$a_sheet" -o "$testOutDir"/"$a_sheet".csv "$foundAchab"
+	"$csvtkExe" xlsx2csv --sheet-name "$a_sheet" -o "$testOutDir"/sheet_"$a_sheet".csv "$foundAchab"
 done
+
+
+# Checksum each extracted sheet:
+md5sum "$testOutDir"/sheet_*.csv > "$testOutDir"/sheetS.md5

@@ -27,19 +27,5 @@
   files:
     - path: out-test/achab_sheets.tsv
       md5sum: 0425cb6f1116d8f8beb0ae92c6caec0b
-    - path: out-test/ALL_0.01.csv
-      md5sum: 35a833a9de6a5cb6df257196c5a35ee8
-    - path: out-test/DS_ACMG.csv
-      md5sum: b2ae0a0d04e5b980882d6c172ec91123
-    - path: out-test/META.csv
-      md5sum: a389877852d39d3896d1b4a55dc1ec50
-    - path: out-test/OMIM_DOM.csv
-      md5sum: 378faa791f144a82572ed814655772bb
-    - path: out-test/OMIM_REC.csv
-      md5sum: 62046ccaf1dd2340694ad2603cd6eab1
-    - path: out-test/DOM.csv
-      md5sum: 62af451f9bce166fa847a6243b999d55
-    - path: out-test/REC.csv
-      md5sum: 63e1e6390c68de4495543a4ca830e795
-    - path: out-test/HMZonly.csv
-      md5sum: b2ae0a0d04e5b980882d6c172ec91123
+    - path: out-test/sheetS.md5
+      md5sum: 319f41da986d0faad4b31dde34b466d2
