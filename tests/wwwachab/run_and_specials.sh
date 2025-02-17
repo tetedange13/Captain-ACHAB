@@ -33,7 +33,7 @@ $CONDA_PREFIX/bin/perl wwwachab.pl $(cat $params_file)
 
 
 # Find produced xlsx (can be either newHope):
-foundAchab=$(find "$achabOutDir" -type f -name "*xlsx")
+foundAchab=$(find "$achabOutDir" -type f -name "*xlsx" ! -name "*_poorCoverage.xlsx")
 
 if [ -z "$foundAchab" ] ; then
 	echo "WARN: NO 'Achab.xlsx' found -> '--version' mode ?" >> /dev/stderr
