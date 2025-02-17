@@ -29,3 +29,17 @@
       md5sum: 0425cb6f1116d8f8beb0ae92c6caec0b
     - path: out-test/sheetS.md5
       md5sum: 319f41da986d0faad4b31dde34b466d2
+
+- name: wwwAchab solo downsampled exome prod
+  # Full set of parameters used in prod for exome
+  tags:
+    - solo
+    - exome
+    - downsampled
+    - prod
+  command: tests/wwwachab/run_and_specials.sh tests/wwwachab/exome-prod.params
+  files:
+    - path: out-test/achab_sheets.tsv
+      md5sum: 3a05b59da58cf23353507755f0d9e638
+    - path: out-test/sheetS.md5
+      md5sum: 85b1516c684608c3b9ee9f291b235cea

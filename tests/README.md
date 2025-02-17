@@ -54,4 +54,11 @@ pytest \
         --verbose \
         --git-aware \
         tests/test_wwwachab.yaml
+
+# Downsampled (only chr22) exome VCF with Achab params used in production:
+pytest \
+        --tag solo --tag exome --tag downsampled --tag prod \
+        --verbose \
+        --git-aware \
+        tests/test_wwwachab.yaml
 ```
