@@ -53,6 +53,16 @@ for a_sheet in $("$csvtkExe" cut -t -f sheet "$listSheetsOut" | awk 'NR>1') ; do
 	"$csvtkExe" xlsx2csv --sheet-name "$a_sheet" -o "$testOutDir"/sheet_"$a_sheet".csv "$foundAchab"
 done
 
-
-# Checksum each extracted sheet:
+# Checksum each extracted sheets file:
 md5sum "$testOutDir"/sheet_*.csv > "$testOutDir"/sheetS.md5
+
+
+# Run 'specials II' (= extract only 'variants' ie. 'CHR-POS-REF-ALT' from each sheet)
+for a_sheet in $("$csvtkExe" cut -t -f sheet "$listSheetsOut" | awk 'NR>1') ; do
+	if grep --quiet --word-regexp "#CHROMPOSREFALT" <("$csvtkExe" headers "$testOutDir"/sheet_"$a_sheet".csv) ; then  # Run only on sheets having a "#CHROMPOSREFALT" column
+		"$csvtkExe" cut --fields "#CHROMPOSREFALT" "$testOutDir"/sheet_"$a_sheet".csv -o "$testOutDir"/vars_"$a_sheet".csv
+	fi
+done
+
+# Checksum each extracted variants file:
+md5sum "$testOutDir"/vars_*.csv > "$testOutDir"/variantS.md5

@@ -29,6 +29,8 @@
       md5sum: 0425cb6f1116d8f8beb0ae92c6caec0b
     - path: out-test/sheetS.md5
       md5sum: 319f41da986d0faad4b31dde34b466d2
+    - path: out-test/variantS.md5
+      md5sum: cb31542c6adbf9a5d6f374555b2ae0f0
 
 - name: wwwAchab solo downsampled exome prod
   # Full set of parameters used in prod for exome
@@ -43,3 +45,5 @@
       md5sum: 3a05b59da58cf23353507755f0d9e638
     - path: out-test/sheetS.md5
       md5sum: 85b1516c684608c3b9ee9f291b235cea
+    - path: out-test/variantS.md5
+      md5sum: 553fc8f3304ba841fa2cd5ae41122603
