@@ -57,12 +57,32 @@ done
 md5sum "$testOutDir"/sheet_*.csv > "$testOutDir"/sheetS.md5
 
 
-# Run 'specials II' (= extract only 'variants' ie. 'CHR-POS-REF-ALT' from each sheet)
+# Run 'specials I' (= extract only 'variants' ie. 'CHR-POS-REF-ALT' from each sheet, preserve ORDER)
+sortedOutDir=./out-ranked
+mkdir --verbose "$sortedOutDir"
+
 for a_sheet in $("$csvtkExe" cut -t -f sheet "$listSheetsOut" | awk 'NR>1') ; do
 	if grep --quiet --word-regexp "#CHROMPOSREFALT" <("$csvtkExe" headers "$testOutDir"/sheet_"$a_sheet".csv) ; then  # Run only on sheets having a "#CHROMPOSREFALT" column
-		"$csvtkExe" cut --fields "#CHROMPOSREFALT" "$testOutDir"/sheet_"$a_sheet".csv -o "$testOutDir"/vars_"$a_sheet".csv
+		"$csvtkExe" cut --fields "#CHROMPOSREFALT" "$testOutDir"/sheet_"$a_sheet".csv |
+			"$csvtkExe" del-header > "$sortedOutDir"/vars_"$a_sheet".csv
 	fi
 done
 
 # Checksum each extracted variants file:
-md5sum "$testOutDir"/vars_*.csv > "$testOutDir"/variantS.md5
+md5sum "$sortedOutDir"/vars_*.csv > "$sortedOutDir"/variantS.md5
+
+
+# Run 'specials II' (= same as 'specials I' but re-sort variants list)
+REsortedOutDir=./out-REsorted
+mkdir --verbose "$REsortedOutDir"
+
+for a_sheet in $("$csvtkExe" cut -t -f sheet "$listSheetsOut" | awk 'NR>1') ; do
+	if grep --quiet --word-regexp "#CHROMPOSREFALT" <("$csvtkExe" headers "$testOutDir"/sheet_"$a_sheet".csv) ; then  # Run only on sheets having a "#CHROMPOSREFALT" column
+		"$csvtkExe" cut --fields "#CHROMPOSREFALT" "$testOutDir"/sheet_"$a_sheet".csv |
+			"$csvtkExe" del-header |
+			sort > "$REsortedOutDir"/vars_"$a_sheet".csv
+	fi
+done
+
+# Checksum each extracted variants file:
+md5sum "$REsortedOutDir"/vars_*.csv > "$REsortedOutDir"/variantS.md5
