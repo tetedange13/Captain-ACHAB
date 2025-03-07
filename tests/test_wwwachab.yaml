@@ -32,7 +32,6 @@
     - path: out-REsorted/variantS.md5
       md5sum: 2869975c2c2b50c85d3ba8880c96f13d
 
-
 - name: wwwAchab solo downsampled exome prod
   # Full set of parameters used in prod for exome
   tags:
@@ -48,3 +47,19 @@
       md5sum: 1a20655ea62207bdb03ef7edf00ca928
     - path: out-REsorted/variantS.md5
       md5sum: a66fee07384a7c1621a05fd38d4fdd30
+
+- name: wwwAchab trio full exome prod
+  # Full set of parameters used in prod for exome (FE037)
+  tags:
+    - trio
+    - exome
+    - full
+    - prod
+  command: tests/wwwachab/run_and_specials.sh tests/wwwachab/trio-prod.params
+  files:
+    - path: out-test/achab_sheets.tsv
+      md5sum: 28459c1936a0dbb701ac09ed88281429
+    - path: out-ranked/variantS.md5
+      md5sum: 8346c29c780ae6b4e1e09692c8e6b578  # FIXME: Not 100% deterministic yet
+    - path: out-REsorted/variantS.md5
+      md5sum: 75249c3fff12f3bd8298cf8e9c7b4f5f
