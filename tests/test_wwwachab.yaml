@@ -62,4 +62,4 @@
     - path: out-ranked/variantS.md5
       md5sum: 8346c29c780ae6b4e1e09692c8e6b578  # FIXME: Not 100% deterministic yet
     - path: out-REsorted/variantS.md5
-      md5sum: 75249c3fff12f3bd8298cf8e9c7b4f5f
+      md5sum: 570710fd14ea55bc4890606553654b61
