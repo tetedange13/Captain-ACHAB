@@ -62,7 +62,7 @@
     - path: out-ranked/variantS.md5
       md5sum: 8346c29c780ae6b4e1e09692c8e6b578  # FIXME: Not 100% deterministic yet
     - path: out-REsorted/variantS.md5
-      md5sum: 570710fd14ea55bc4890606553654b61
+      md5sum: 9c8f2ad05bf01cac2139e6b87d95427e
 
 - name: wwwAchab trio full exome prod V18
   # Prod with V18 on full exome trio (FE037)
@@ -79,4 +79,20 @@
       md5sum: 8346c29c780ae6b4e1e09692c8e6b578  # FIXME: Not 100% deterministic yet
     - path: out-REsorted/variantS.md5
       md5sum: 570710fd14ea55bc4890606553654b61  # More vars in DENOVO -> md5 differs from V15
+
+- name: wwwAchab trio full exome prod V19
+  # Prod with V19 on full exome trio (FE037)
+  tags:
+    - trio
+    - exome
+    - full
+    - prodV19
+  command: tests/wwwachab/run_and_specials.sh tests/wwwachab/trio-prod-v19.params
+  files:
+    - path: out-test/achab_sheets.tsv
+      md5sum: 28459c1936a0dbb701ac09ed88281429
+    - path: out-ranked/variantS.md5
+      md5sum: 8346c29c780ae6b4e1e09692c8e6b578  # FIXME: Not 100% deterministic yet
+    - path: out-REsorted/variantS.md5
+      md5sum: 9c8f2ad05bf01cac2139e6b87d95427e  # Clinvar_PATHO always included (even if high GnomAD) -> md5 differ from V18
 
