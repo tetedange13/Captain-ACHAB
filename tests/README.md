@@ -61,4 +61,12 @@ pytest \
         --verbose \
         --git-aware \
         tests/test_wwwachab.yaml
+
+# Full trio of exome (with params used in production):
+pytest \
+        --tag trio --tag exome --tag full --tag prod \
+        --verbose \
+        --git-aware \
+        tests/test_wwwachab.yaml
+
 ```
