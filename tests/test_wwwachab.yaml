@@ -6,7 +6,7 @@
   command: tests/wwwachab/run_and_specials.sh tests/wwwachab/version.params
   files:
     - path: log.out
-      md5sum: baa3e19ff5d804c2496d90baea11b8e6
+      md5sum: 55e45bb20f6d96b4712c20939dc2a75f
 
 - name: wwwAchab show help
   tags:
@@ -14,7 +14,7 @@
   command: tests/wwwachab/run_and_specials.sh tests/wwwachab/help.params
   files:
     - path: log.out
-      md5sum: 13e155d0d2f817bd1d0385def581bccf
+      md5sum: b690f9fc41fce965ec40025795c86e99
 
 - name: wwwAchab trio full exome prod
   # Full set of parameters used in prod for exome (FE037)
