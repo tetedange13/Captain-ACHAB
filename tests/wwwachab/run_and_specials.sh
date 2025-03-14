@@ -80,7 +80,7 @@ for a_sheet in $("$csvtkExe" cut -t -f sheet "$listSheetsOut" | awk 'NR>1') ; do
 	if grep --quiet --word-regexp "#CHROMPOSREFALT" <("$csvtkExe" headers "$testOutDir"/sheet_"$a_sheet".csv) ; then  # Run only on sheets having a "#CHROMPOSREFALT" column
 		"$csvtkExe" cut --fields "#CHROMPOSREFALT" "$testOutDir"/sheet_"$a_sheet".csv |
 			"$csvtkExe" del-header |
-			sort > "$REsortedOutDir"/vars_"$a_sheet".csv
+			LC_ALL=C sort > "$REsortedOutDir"/vars_"$a_sheet".csv
 	fi
 done
 
